@@ -1,0 +1,59 @@
+body {
+  background-color: transparent;
+}
+
+body {
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+}
+
+input::-ms-clear,
+input::-ms-reveal,
+select::-ms-expand {
+  display: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+:focus {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  margin: 0 auto;
+}
