@@ -46,8 +46,8 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              // CSS内のurl()メソッドの取り込みを取り込む
-              url: true,
+              // CSS内のurl()メソッドを取り込む
+              url: false,
               // ソースマップの利用有無
               sourceMap: enabledSourceMap,
 
@@ -78,22 +78,6 @@ module.exports = {
             }
           }
         ]
-      },
-      // scssファイル内でurl()
-      {
-        // 対象となるファイルの拡張子
-        test: /\.(gif|png|jpg|eot|wof|woff|woff2|ttf|svg)$/,
-        use: [
-          {
-            // 画像をBase64として取り込む
-            loader: "url-loader",
-            options: {
-              limit: 100 * 1024, // 100KB以上であれば埋め込まずにファイルとして分離する
-              name: './img/[name].[ext]'
-            }
-          }
-        ]
-
       }
     ]
   },
