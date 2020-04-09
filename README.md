@@ -1,8 +1,8 @@
 # Static Website Boilerplate
 静的なWebサイト制作のためのboilerplate
-Webpack + Babel + Sass
+Webpack + Babel + Sass + imagemin
 
-dist/main.jsにjs, sass, sass内のurl(100KB以下)をまとめて出力
+dist/main.jsにjs, sassをまとめて出力
 
 ## コマンド
 ### install
