@@ -1,23 +1,44 @@
-// ブレイクポイントの指定
-$layout-breakpoint--is-small: 768px !default;
-$layout-breakpoint--is-small-up: 769px !default;
-$layout-breakpoint--is-medium: 980px !default;
-$layout-breakpoint--is-medium-up: 981px !default;
+/*
+** media query
+** break pointはtwitter bootstrapに準拠
+*/
 
-$layout-column-length--is-small: 4;
-$layout-gutter-width--is-small: 20px;
-$layout-column-width--is-small: calc(
-        (100% - #{$layout-gutter-width--is-small} * (#{$layout-column-length--is-small} - 1)) / #{$layout-column-length--is-small}
+$mq-breakpoints: (
+  'xs': 320px,
+  'sm': 600px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
 );
 
-$layout-column-length--is-small-up: 20;
-$layout-gutter-width--is-small-up: 20px;
-$layout-column-width--is-small-up: calc(
-        (100% - #{$layout-gutter-width--is-small-up} * (#{$layout-column-length--is-small-up} - 1)) / #{$layout-column-length--is-small-up}
-);
+@mixin mq($breakpoint: md) {
+  @media screen and (min-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
 
-$section-container-horizontal-padding--is-small-up: 70px;
-$content-min-width--is-small-up: calc(#{$layout-breakpoint--is-small-up} - #{$section-container-horizontal-padding--is-small-up} * 2);
+/*
+** space scale
+** 基準となるスペーシング * フィボナッチ数
+*/
+$space-unit: 0.5rem;
+$space-1: $space-unit; // 8px
+$space-2: $space-unit * 2; // 16px
+$space-3: $space-unit * 3; // 24px
+$space-4: $space-unit * 5; // 40px
+$space-5: $space-unit * 8; // 64px
+$space-6: $space-unit * 13; // 104px
 
-$page-container-max-width: 1180px;
-$page-container-padding: 8vw;
+.l-container {
+  width: 100%;
+  padding: 0 $space-2;
+  margin: 0 auto;
+
+  @include mq(md) {
+    max-width: 1060px;
+    padding: 0 $space-5;
+  }
+
+  @include mq(lg) {
+  }
+}
