@@ -6,7 +6,7 @@ const imageminSvgo = require('imagemin-svgo');
 
 (async () => {
   const files = await imagemin(
-    ['src/assets/img/**/*.{jpg,png,gif,svg}'], {
+    ['src/img/**/*.{jpg,png,gif,svg}'], {
       plugins: [
         imageminMozjpeg({ quality: 80 }),
         imageminPngquant({ quality: '65-80' }),
@@ -14,7 +14,7 @@ const imageminSvgo = require('imagemin-svgo');
         imageminSvgo()
       ],
       replaceOutputDir: output => {
-        return output.replace(/images\//, '../../dist/img/')
+        return output.replace(/img\//, '../dist/img/')
       }
     }
   )
